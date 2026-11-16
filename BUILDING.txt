@@ -1,0 +1,8 @@
+Building SPS Viewpoint Compatibility Patch (jar: UpdateCompatPatches.jar)
+Needs a JDK 25 plus the game's projectzomboid.jar and ZombieBuddy.jar (compile-time only, never bundled).
+
+  javac --release 25 -encoding UTF-8 -cp "<game>/projectzomboid.jar;<game>/ZombieBuddy.jar" -d out jay/compat/*.java
+  copy jay/compat/compat-rules.txt into out/jay/compat/
+  jar cf UpdateCompatPatches.jar -C out jay
+
+(On Linux/macOS use ':' instead of ';' in the classpath.)

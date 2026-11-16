@@ -1,0 +1,24 @@
+# Update Compat Patches - built-in rules. Format: see Rules.java. Names use the JVM form a/b/C$D.
+#
+# ---- Project Zomboid 42.22 (Nov 2026) ----
+#
+# Version locks: these mods declare versionMax 42.21, so 42.22 refuses to load them.
+# (6282 3D models for Viewpoint was in this list until its author fixed it on Nov 11.)
+# Each rule lets the mod load on games up to 42.22; on 42.23 the lock returns until this list is reviewed.
+unlock ViewpointLogWalls 42.22          # Viewpoint - 3D Construction (the server world has its log gates and watchtower)
+unlock ViewpointRollingHills 42.22      # Viewpoint Rolling Hills
+unlock BasileDoors3D 42.22              # Project Viewpoint - 3D Doors, Gates & Garages
+unlock VisceralViewpoint 42.22          # Viewpoint - Visceral
+
+# 42.22 removed zombie.util.list.PZArrayList. IsoGridSquare.getObjects() now returns java.util.List and
+# IsoGameCharacter.getHitInfoList() returns java.util.ArrayList. Mods only call size() and get(int) on it,
+# both of which List has.
+class zombie/util/list/PZArrayList java/util/List interface
+desc zombie/characters/IsoGameCharacter getHitInfoList ()Ljava/util/List; ()Ljava/util/ArrayList;
+
+# 42.22 merged rope and ladder climbing into ClimbState; the climb data (idealx, idealy) moved with it.
+class zombie/ai/states/ClimbSheetRopeState zombie/ai/states/ClimbState
+class zombie/ai/states/ClimbSheetRopeState$ClimbData zombie/ai/states/ClimbState$ClimbData
+
+# 42.22 moved IsoPlayer.isHeavyItem(item) to the static InventoryItem.isHeavyItem(item).
+static zombie/characters/IsoPlayer isHeavyItem (Lzombie/inventory/InventoryItem;)Z zombie/inventory/InventoryItem isHeavyItem (Lzombie/inventory/InventoryItem;)Z

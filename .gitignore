@@ -1,0 +1,22 @@
+# --- Build output (build.sh writes these) ---
+out/
+*.class
+UpdateCompatPatches.jar
+
+# --- Built jars and test inputs ---
+# Release jars go on the repo's GitHub Releases page, not in git history.
+# test/check2.py reads the game's / Viewpoint's / ZombieBuddy's jars (pz.jar, vp.jar, zb.jar)
+# and caches indexes (*.idx); those belong to other people and stay on your PC.
+*.jar
+*.idx
+
+# --- Old local builds and private dev notes kept on your PC only ---
+old-local-*/
+NOTES.md
+
+# --- Windows / editor junk ---
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.iml

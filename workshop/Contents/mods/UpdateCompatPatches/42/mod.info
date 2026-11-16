@@ -1,0 +1,11 @@
+name=SPS Viewpoint Compatibility Patch 42.22.2
+id=UpdateCompatPatches
+description=Keeps mods running across Project Zomboid updates until their authors ship fixes: lets listed mods load past an out-of-date versionMax, and adapts mod code that calls game code which moved or was removed. Applied in memory while the game loads; no other mod's files are changed. Requires ZombieBuddy; keep it directly under ZombieBuddy in the mod list. In Viewpoint's first- and third-person view it also keeps other mods' admin and debug menus out of the action picker (the classic view is unchanged). With Immersive Snow - Viewpoint (bridge 1.3) on Viewpoint 0.1.6.2 it skips that add-on's Viewpoint version check (unsupported; see the Workshop page).
+author=Jay
+modversion=0.2.3
+poster=poster.png
+versionMin=42.22
+require=\ZombieBuddy
+ZBVersionMin=2.3.4
+javaJarFile=media/java/client/UpdateCompatPatches.jar
+javaPkgName=jay.compat
